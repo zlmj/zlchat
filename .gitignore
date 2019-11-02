@@ -1,0 +1,15 @@
+﻿################################################################################
+# 此 .gitignore 文件已由 Microsoft(R) Visual Studio 自动创建。
+################################################################################
+
+/zlchatserver/bin/Debug/netcoreapp3.0
+/zlchatserver/obj
+/src/chatserver/obj
+/src/chatserver/bin/Debug/netcoreapp3.0
+/src/chatBLL/obj
+/src/chatBLL/bin/Debug/netcoreapp3.0
+/src/chatDAL/obj
+/src/chatDAL/bin/Debug/netcoreapp3.0
+/src/ChatModel/obj
+/src/ChatModel/bin/Debug/netcoreapp3.0
+/.vs
