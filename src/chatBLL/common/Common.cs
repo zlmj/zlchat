@@ -9,7 +9,7 @@ using System.Web;
 
 namespace chatBLL
 {
-    internal class Common
+    public class Common
     {
         public const string Const_Space = " ";
 

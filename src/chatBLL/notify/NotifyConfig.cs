@@ -5,14 +5,14 @@ using System.Web;
 
 namespace chatBLL
 {
-    internal class NotifyConfigArray
+    public class NotifyConfigArray
     {
         public NotifyConfig[] configs { get; set; }
     }
     /// <summary>
     /// 配置信息
     /// </summary>
-    internal class NotifyConfig
+    public class NotifyConfig
     {
         public string code { get; set; }
         public string db_type { get; set; }
@@ -23,7 +23,7 @@ namespace chatBLL
     /// <summary>
     /// 配置信息
     /// </summary>
-    internal class NotifyConfigItem
+    public class NotifyConfigItem
     {
         public string name { get; set; }
         public string type { get; set; } //oracle.proc,webapi

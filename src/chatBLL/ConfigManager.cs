@@ -8,11 +8,11 @@ using System.Web;
 
 namespace chatBLL
 {
-    internal class ConfigManager
+    public class ConfigManager
     {
         private const string Const_SysConfig = "_sys_";
         private const string Const_ConfigFileName = "notifyConfig.json";
-        private static string sConfigFileFullName = Path.Combine(Common.GetBaseDirectory(), "webchat", Const_ConfigFileName);
+        private static string sConfigFileFullName = Path.Combine(Common.GetBaseDirectory(), Const_ConfigFileName);
 
         public static Dictionary<string, NotifyConfig> sConfigs;
         public static Dictionary<string, NotifyExectorContainer> sExectors;

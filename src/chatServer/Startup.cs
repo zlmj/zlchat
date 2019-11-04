@@ -26,6 +26,8 @@ namespace chatserver
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddSignalR();
+            services.AddSignalRCore();
+            services.AddCors();
             services.AddControllers();
         }
 

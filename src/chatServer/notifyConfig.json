@@ -1,0 +1,51 @@
+﻿{
+  "configs": [
+    {
+      "code": "_sys_",
+      "db_type": "pg",
+      "db_connstring": "PORT=5432;DATABASE=zlchattest;HOST=192.168.31.146;PASSWORD=zlsoft;USER ID=postgres"
+    },
+    {
+      "code": "zlhis",
+      "items": [
+        {
+          "filter": "!危急值&传染病&报告",
+          "name": "通知新版临生免系统",
+          "type": "webapi",
+          "webapi_url": "http://192.168.31.52:8110/bizdomain/6d0b3a88-7954-40c2-82d7-0865cb409ef4",
+          "webapi_method": "post",
+          "webapi_auth": "admin:&4=YRtaWYYW",
+          "args": "{{\"接收人\":\"{uid}\",\"url\":\"{url}\",\"标题\":\"{subject}\"}}"
+        },
+        {
+          "filter": "危急值&传染病&报告",
+          "name": "通知ZLHIS",
+          "type": "oracle.proc",
+          "db_connstring": "Data Source=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=192.168.33.58)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=ORC3)));User ID=zlhis;Password=his;Pooling=true;Connection Lifetime=0;Max Pool Size=100;Min Pool Size=1;Incr Pool Size=5",
+          "db_proc": "Zl_Chatnotify_Receive",
+          "args": ",:|Receiver_in:{uname},url_in:{url},sys_code_in:{system},main_code_in:{maincode},main_id_in:{mainid},subject_in:{subject},sender_in:{creatorId}"
+        }
+      ]
+    },
+    {
+      "code": "zllab",
+      "items": [
+        {
+          "name": "通知ZL临生免系统",
+          "type": "webapi",
+          "webapi_url": "http://192.168.31.52:8110/bizdomain/6d0b3a88-7954-40c2-82d7-0865cb409ef4",
+          "webapi_method": "post",
+          "webapi_auth": "admin:&4=YRtaWYYW",
+          "args": "{{\"接收人\":\"{uid}\",\"url\":\"{url}\",\"标题\":\"{subject}\"}}"
+        },
+        {
+          "name": "通知ZLHIS",
+          "type": "oracle.proc",
+          "db_connstring": "Data Source=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=192.168.33.58)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=ORC3)));User ID=zlhis;Password=his;Pooling=true;Connection Lifetime=0;Max Pool Size=100;Min Pool Size=1;Incr Pool Size=5",
+          "db_proc": "Zl_Chatnotify_Receive",
+          "args": ",:|Receiver_in:{uname},url_in:{url},sys_code_in:{system},main_code_in:{maincode},main_id_in:{mainid},subject_in:{subject},sender_in:{creatorId}"
+        }
+      ]
+    }
+  ]
+}

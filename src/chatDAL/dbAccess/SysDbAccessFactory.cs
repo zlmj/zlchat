@@ -5,7 +5,7 @@ using System.Web;
 
 namespace chatDAL
 {
-    internal class SysDbAccessFactory
+    public class SysDbAccessFactory
     {
         public static IDataAccessAdapter Create(string dbType)
         {

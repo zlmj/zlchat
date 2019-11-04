@@ -12,7 +12,7 @@ using System.Web;
 namespace chatBLL
 {
 
-    internal class NotifyExectorContainer
+    public class NotifyExectorContainer
     {
         private List<NotifyExector> m4Match;
         private List<NotifyExector> m4Dismatch;
@@ -87,7 +87,7 @@ namespace chatBLL
     /// <summary>
     /// 通知执行器基类
     /// </summary>
-    internal abstract class NotifyExector
+    public abstract class NotifyExector
     {
         internal string ID = Guid.NewGuid().ToString();
         public string Name { get; private set; }
@@ -149,7 +149,7 @@ namespace chatBLL
         /// <returns></returns>
         internal abstract bool ExecuteCore(string uid, string uname, string url, string system,
             string maincode, string mainid, string subject, string creatorId, string creatorName);
-        
+
         internal static NotifyExector GetExector(NotifyConfigItem item)
         {
             if (!string.IsNullOrWhiteSpace(item.type))
@@ -166,7 +166,7 @@ namespace chatBLL
             }
             return null;
         }
-        
+
         protected static bool ParseArgs4KeyValuePairs(string argsText, out Dictionary<string, string> dictArgs)
         {
             dictArgs = null;
@@ -258,7 +258,7 @@ namespace chatBLL
     }
 
 
-    internal class OracleDbProcNotifyExector : NotifyExector
+    public class OracleDbProcNotifyExector : NotifyExector
     {
         internal const string TypeString = "oracle.proc";
 
@@ -287,7 +287,7 @@ namespace chatBLL
             }
         }
 
-        internal override bool ExecuteCore(string uid, string uname, string url, string system, string maincode, string mainid, 
+        internal override bool ExecuteCore(string uid, string uname, string url, string system, string maincode, string mainid,
             string subject, string creatorId, string creatorName)
         {
             ODPDataAccess dbAccess = mDbAccess;
@@ -306,7 +306,7 @@ namespace chatBLL
                             maincode, mainid, subject, creatorId, creatorName);
                         index++;
                     }
-                }                
+                }
                 //parms = new OracleParameter[]
                 //{
                 //    new OracleParameter("user_in", OracleDbType.Varchar2),
@@ -329,7 +329,7 @@ namespace chatBLL
                 //    parms[6].Value = createUser;
 
                 try
-                { 
+                {
                     dbAccess.ExecuteNonQuery(mProc, parms, System.Data.CommandType.StoredProcedure);
                 }
                 catch (Exception ex)
@@ -357,7 +357,7 @@ Create Or Replace Procedure Zltools.Zldiscussiongroup_Update
             #endregion
         }
 
-        object GetArgDbValue(string argValString, string uid, string uname, string url, string system, string maincode, 
+        object GetArgDbValue(string argValString, string uid, string uname, string url, string system, string maincode,
             string mainid, string subject, string creatorId, string creatorName)
         {
             string strVal = GetArgValue(argValString, uid, uname, url, system, maincode, mainid, subject, creatorId, creatorName);
@@ -367,7 +367,7 @@ Create Or Replace Procedure Zltools.Zldiscussiongroup_Update
         }
     }
 
-    internal class WebapiNotifyExector : NotifyExector
+    public class WebapiNotifyExector : NotifyExector
     {
         internal const string TypeString = "webapi";
 
